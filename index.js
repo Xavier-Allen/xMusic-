@@ -37,7 +37,10 @@ function findWeather(city) {
 
 // Pulls a music playlist from the hash table
 function pullMusic(code) {
-  let playlistLink = hash(code);
+  // Fix YT credentials to conceal. Maybe a hashCode.
+  let ytCredentials = "AIzaSyDdhpvVdUykO1x3RahLj0FkDhT69hRFjvg";
+  let playlistLink = songKeys[code];
+  let playlist = ``;
 }
 
 // looking up the hash function given the pullMusic
@@ -87,12 +90,8 @@ function hashlookup(weather, degrees, time) {
       console.log(degreesCode);
       break;
 
-    case degrees < 0:
-      degreesCode = "Z";
-      break;
-
     case degrees <= 7:
-      degreesCode = "Y";
+      degreesCode = "Z";
       break;
 
     case degrees <= 15:
@@ -108,7 +107,7 @@ function hashlookup(weather, degrees, time) {
       degreesCode = "V";
       break;
     case degrees > 35:
-      degreesCode = "T";
+      degreesCode = "U";
       break;
   }
 
@@ -157,3 +156,115 @@ function invalidCity() {
   let setInvalid = (document.getElementById("invalidCity").innerText =
     "Please enter a valid city");
 }
+
+//Hash Table for xMusic
+
+const songKeys = {
+  // A block
+  AZ1: "CODE",
+  AZ2: "CODE",
+  AZ3: "CODE",
+  AZ4: "CODE",
+  AX1: "CODE",
+  AX2: "CODE",
+  AX3: "CODE",
+  AX4: "CODE",
+  AW1: "CODE",
+  AW2: "CODE",
+  AW3: "CODE",
+  AW4: "CODE",
+  AV1: "CODE",
+  AV2: "CODE",
+  AV3: "CODE",
+  AV4: "CODE",
+  AU1: "CODE",
+  AU2: "CODE",
+  AU3: "CODE",
+  AU4: "CODE",
+  //B Block
+  BZ1: "CODE", //BZ1 = CZ1, Z2,Z3,Z4
+  BZ2: "CODE",
+  BZ3: "CODE",
+  BZ4: "CODE",
+  BX1: "CODE",
+  BX2: "CODE",
+  BX3: "CODE",
+  BX4: "CODE",
+  BW1: "CODE",
+  BW2: "CODE",
+  BW3: "CODE",
+  BW4: "CODE",
+  BV1: "CODE",
+  BV2: "CODE",
+  BV3: "CODE",
+  BV4: "CODE",
+  BU1: "CODE",
+  BU2: "CODE",
+  BU3: "CODE",
+  BU4: "CODE",
+  // C Block
+  CZ1: "CODE",
+  CZ2: "CODE",
+  CZ3: "CODE",
+  CZ4: "CODE",
+  CX1: "CODE",
+  CX2: "CODE",
+  CX3: "CODE",
+  CX4: "CODE",
+  // D Block
+  DZ1: "CODE",
+  DZ2: "CODE",
+  DZ3: "CODE",
+  DZ4: "CODE",
+  DX1: "CODE",
+  DX2: "CODE",
+  DX3: "CODE",
+  DX4: "CODE",
+  DW1: "CODE",
+  DW2: "CODE",
+  DW3: "CODE",
+  DW4: "CODE",
+  DV1: "CODE",
+  DV2: "CODE",
+  DV3: "CODE",
+  DV4: "CODE",
+  DU1: "CODE",
+  DU2: "CODE",
+  DU3: "CODE",
+  DU4: "CODE",
+  //E Block
+  EZ1: "CODE",
+  EZ2: "CODE",
+  EZ3: "CODE",
+  EZ4: "CODE",
+  EX1: "CODE",
+  EX2: "CODE",
+  EX3: "CODE",
+  EX4: "CODE",
+  EW1: "CODE",
+  EW2: "CODE",
+  EW3: "CODE",
+  EW4: "CODE",
+  EV1: "CODE",
+  EV2: "CODE",
+  EV3: "CODE",
+  EV4: "CODE",
+  EU1: "CODE",
+  EU2: "CODE",
+  EU3: "CODE",
+  EU4: "CODE",
+
+  // F Block
+  FZ1: "CODE",
+  FZ2: "CODE",
+  FZ3: "CODE",
+  FZ4: "CODE",
+  FX1: "CODE",
+  FX2: "CODE",
+  FX3: "CODE",
+  FX4: "CODE",
+  FW1: "CODE",
+  FW2: "CODE",
+  FW3: "CODE",
+  FW4: "CODE"
+};
