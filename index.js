@@ -37,10 +37,13 @@ function findWeather(city) {
 
 // Pulls a music playlist from the hash table
 function pullMusic(code) {
-  // Fix YT credentials to conceal. Maybe a hashCode.
-  let ytCredentials = "AIzaSyDdhpvVdUykO1x3RahLj0FkDhT69hRFjvg";
-  let playlistLink = songKeys[code];
-  let playlist = ``;
+  let playlistID = songKeys[code];
+  let playlist = `https://www.youtube.com/embed?listType=playlist&list=${songKeys[code]}`;
+  let player = doucment.getElementById("player");
+
+  player.innerHTML = `<iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+  frameborder="0"></iframe>`;
 }
 
 // looking up the hash function given the pullMusic
@@ -137,7 +140,7 @@ function hashlookup(weather, degrees, time) {
   //   `WeatherCode ${weatherCode}, degreesCode ${degreesCode}, then we have timeCode ${timeCode}`
   // );
   finalCode = weatherCode + degreesCode + timeCode;
-
+  console.log(finalCode);
   pullMusic(finalCode);
 }
 
@@ -176,7 +179,7 @@ const songKeys = {
   AV1: "CODE",
   AV2: "CODE",
   AV3: "CODE",
-  AV4: "CODE",
+  AV4: "PLyr4bTLkbO3zujIeYcmzZ7N-bQyvB2rZh",
   AU1: "CODE",
   AU2: "CODE",
   AU3: "CODE",
