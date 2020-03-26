@@ -1,17 +1,12 @@
-//Connects function to submit button
 document.getElementById("submitButton").addEventListener("click", () => {
   const city = document.getElementById("enterCity").value.trim();
   isEmpty(city);
 });
 
 function findWeather(city) {
-  //Clear invalid text
   document.getElementById("invalidCity").innerText = "";
-
-  //const proxy = "https://cors-anywhere.herokuapp.com/";
   const apiKey = "39f137c523ad333675cebf77a244c923";
 
-  //Fetch city
   fetch(
     `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
   )
@@ -20,14 +15,11 @@ function findWeather(city) {
     })
     .then(data => {
       console.log(data);
-      //Grab weather, time, degrees(celcius cause it's easier)
-      //Pass that data into hashlookup function
       const degrees = Math.floor(data.main.temp - 273);
       const weather = data["weather"][0]["main"];
       const time = new Date().getHours();
       console.log(weather, degrees, time);
 
-      // Passing in weather params to hashLookup
       hashlookup(weather, degrees, time);
     })
     .catch(err => {
@@ -37,16 +29,15 @@ function findWeather(city) {
 
 // Pulls a music playlist from the hash table
 function pullMusic(code) {
-  let playlistID = songKeys[code];
+  // let playlistID = songKeys[code];
   let playlist = `https://www.youtube.com/embed?listType=playlist&list=${songKeys[code]}`;
-  let player = doucment.getElementById("player");
-
-  player.innerHTML = `<iframe id="ytplayer" type="text/html" width="640" height="360"
-  src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+  let player = document.getElementById("player");
+  player.innerHTML = `<h1>This be me</h1>
+  <iframe id="player" type="text/html" width="640" height="390"
+  src="${playlist}"
   frameborder="0"></iframe>`;
 }
 
-// looking up the hash function given the pullMusic
 function hashlookup(weather, degrees, time) {
   let weatherCode = "";
   let degreesCode = "Z";
@@ -70,7 +61,6 @@ function hashlookup(weather, degrees, time) {
       break;
 
     case "Snow":
-      console.log("4");
       weatherCode = "C";
       break;
 
@@ -136,18 +126,13 @@ function hashlookup(weather, degrees, time) {
       timeCode = "4";
       break;
   }
-  // console.log(
-  //   `WeatherCode ${weatherCode}, degreesCode ${degreesCode}, then we have timeCode ${timeCode}`
-  // );
   finalCode = weatherCode + degreesCode + timeCode;
   console.log(finalCode);
   pullMusic(finalCode);
 }
 
-//Function that checks if a city is present
 function isEmpty(value) {
   if (value === "") {
-    console.log(value);
     invalidCity();
   } else {
     console.log(`clicked ${value}`);
@@ -156,8 +141,8 @@ function isEmpty(value) {
 }
 
 function invalidCity() {
-  let setInvalid = (document.getElementById("invalidCity").innerText =
-    "Please enter a valid city");
+  document.getElementById("invalidCity").innerText =
+    "Please enter a valid city";
 }
 
 //Hash Table for xMusic
@@ -195,7 +180,7 @@ const songKeys = {
   BX4: "CODE",
   BW1: "CODE",
   BW2: "CODE",
-  BW3: "CODE",
+  "BW3": "PLyr4bTLkbO3zujIeYcmzZ7N-bQyvB2rZh",
   BW4: "CODE",
   BV1: "CODE",
   BV2: "CODE",
