@@ -1,0 +1,39 @@
+body {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+}
+
+.first-grid {
+    padding: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-image: url(/xMusic/img/blue-ps.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height : 100%;
+}
+.first-grid-img{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    opacity: 85%;
+}
+.second-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-image: url(/xMusic/img/blue-p.jpg);
+    padding: 120px;
+}
+.second-grid-text{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    padding: 120px;
+    margin-right: 60px;
+}
+.third-grid {
+    display: grid;
+    grid-template-columns: 1 fr 1fr;
+    background-color:white;
+}
